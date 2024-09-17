@@ -14,8 +14,8 @@ const TicketConfirmPage = () => {
   };
 
   const handleConfirm = () => {
-    // Navigate to PaymentForBus page with the selected bus and ticket details
-    navigate('/payment-for-bus', {
+    // Navigate to TicketPrintPage with the selected bus and ticket details
+    navigate('/ticket-print', {
       state: {
         selectedBus,
         from,
