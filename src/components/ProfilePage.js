@@ -102,26 +102,26 @@ const ProfilePage = () => {
               <div className="space-y-4">
                 <div className="bg-gray-100 p-4 rounded-md shadow-sm">
                   <div className="flex justify-between mb-2">
-                    <span className="font-semibold">John Doe</span>
+                    <span className="font-semibold">Iffat</span>
                     <span className="text-sm text-gray-500">12:34 PM</span>
                   </div>
-                  <p className="text-gray-700">Hi there! This is a sample message to illustrate the message view in the profile section.</p>
+                  <p className="text-gray-700">Hi there! As sir kintu already bolsei j 25% mane j kuno 1/2 ta feature complete kore dekhano.</p>
                 </div>
 
                 <div className="bg-gray-100 p-4 rounded-md shadow-sm">
                   <div className="flex justify-between mb-2">
-                    <span className="font-semibold">Jane Smith</span>
+                    <span className="font-semibold">Junaid</span>
                     <span className="text-sm text-gray-500">11:22 AM</span>
                   </div>
-                  <p className="text-gray-700">Just wanted to check in and see how you're doing. Let me know if you need anything!</p>
+                  <p className="text-gray-700">Just wanted to check in and see how you're doing. Seroius akta sick homu. Onk din ghumai na!</p>
                 </div>
 
                 <div className="bg-gray-100 p-4 rounded-md shadow-sm">
                   <div className="flex justify-between mb-2">
-                    <span className="font-semibold">Alex Johnson</span>
+                    <span className="font-semibold">Rayan</span>
                     <span className="text-sm text-gray-500">10:15 AM</span>
                   </div>
-                  <p className="text-gray-700">Don't forget about our meeting tomorrow. Looking forward to it!</p>
+                  <p className="text-gray-700">Don't forget about our SAD Lab presentation tomorrow. Btw, Ami kon slide theke presentation dibo?</p>
                 </div>
               </div>
             </>
