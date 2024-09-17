@@ -85,4 +85,6 @@ const CarRentPage = () => {
   );
 };
 
+
+
 export default CarRentPage;
