@@ -5,24 +5,15 @@ const TicketConfirmPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Retrieve selected bus data and other relevant information from location state
   const { selectedBus, from, to, date, time } = location.state || {};
 
   const handleCancel = () => {
-    // Navigate back to the bus selection page or reset the process
     navigate('/bus-info', { state: { from, to, date, time } });
   };
 
-  const handlePayment = () => {
-    // Navigate to PaybillForBus page for payment processing
+  const handlePayWithBkash = () => {
     navigate('/paybill', {
-      state: {
-        selectedBus,
-        from,
-        to,
-        date,
-        time
-      }
+      state: { selectedBus, from, to, date, time }
     });
   };
 
@@ -76,10 +67,10 @@ const TicketConfirmPage = () => {
             Cancel
           </button>
           <button
-            onClick={handlePayment}
+            onClick={handlePayWithBkash}
             className="bg-green-500 text-white py-2 px-4 rounded-lg"
           >
-            Payment
+            Pay with Bkash
           </button>
         </div>
       </div>

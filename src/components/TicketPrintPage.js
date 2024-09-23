@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { jsPDF } from 'jspdf';
 
 const TicketPrintPage = () => {
   const location = useLocation();
@@ -18,7 +19,21 @@ const TicketPrintPage = () => {
   };
 
   const handleDownloadPDF = () => {
-    alert('Download PDF functionality will be implemented later.');
+    // Create a new jsPDF instance
+    const doc = new jsPDF();
+
+    // Add ticket content to the PDF
+    doc.setFontSize(20);
+    doc.text('Ticket Confirmation', 20, 20);
+    
+    doc.setFontSize(14);
+    doc.text(`Bus Name: ${selectedBus.name}`, 20, 40);
+    doc.text(`Seat No.: ${seatNo}`, 20, 50);
+    doc.text(`Date: ${date}`, 20, 60);
+    doc.text(`Time: ${time}`, 20, 70);
+
+    // Save the PDF with a custom name
+    doc.save('ticket.pdf');
   };
 
   const handleSetReminder = () => {
