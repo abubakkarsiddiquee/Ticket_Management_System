@@ -1,29 +1,18 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-const TicketConfirmPage = () => {
+const PaybillForBus = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-
-  // Retrieve selected bus data and other relevant information from location state
   const { selectedBus, from, to, date, time } = location.state || {};
 
-  const handleCancel = () => {
-    // Navigate back to the bus selection page or reset the process
-    navigate('/bus-info', { state: { from, to, date, time } });
+  const handleBkashPayment = () => {
+    alert('Redirecting to bKash payment gateway...');
+    // Logic for bKash payment can be implemented here
   };
 
-  const handlePayment = () => {
-    // Navigate to PaybillForBus page for payment processing
-    navigate('/paybill', {
-      state: {
-        selectedBus,
-        from,
-        to,
-        date,
-        time
-      }
-    });
+  const handleCardPayment = () => {
+    alert('Redirecting to Card payment gateway...');
+    // Logic for card payment can be implemented here
   };
 
   return (
@@ -49,37 +38,35 @@ const TicketConfirmPage = () => {
         </div>
       </nav>
 
-      {/* Ticket Confirmation Section */}
+      {/* Payment Page Content */}
       <div className="p-8">
-        <h1 className="text-4xl font-bold mb-4">Confirm Your Ticket</h1>
+        <h1 className="text-3xl font-bold mb-6">Payment Page</h1>
 
-        {/* Display Selected Bus Information */}
+        {/* Display Ticket Details */}
         <div className="mb-6">
-          <h2 className="text-2xl font-semibold">Bus Information:</h2>
+          <h2 className="text-xl font-semibold">Ticket Details:</h2>
           <p><strong>Bus Name:</strong> {selectedBus?.name}</p>
-          <p><strong>Seats Available:</strong> {selectedBus?.seats}</p>
-          <p><strong>Price:</strong> {selectedBus?.price} BDT</p>
-          <p><strong>Departure:</strong> {selectedBus?.departure}</p>
-          <p><strong>Arrival:</strong> {selectedBus?.arrival}</p>
           <p><strong>From:</strong> {from}</p>
           <p><strong>To:</strong> {to}</p>
           <p><strong>Date:</strong> {date}</p>
           <p><strong>Time:</strong> {time}</p>
+          <p><strong>Price:</strong> {selectedBus?.price} BDT</p>
         </div>
 
-        {/* Confirm and Cancel Buttons */}
+        {/* Payment Options */}
+        <h2 className="text-2xl font-semibold mb-4">Choose Payment Method</h2>
         <div className="flex space-x-4">
           <button
-            onClick={handleCancel}
-            className="bg-red-500 text-white py-2 px-4 rounded-lg"
+            onClick={handleBkashPayment}
+            className="bg-pink-500 text-white py-2 px-4 rounded-lg"
           >
-            Cancel
+            Pay with bKash
           </button>
           <button
-            onClick={handlePayment}
-            className="bg-green-500 text-white py-2 px-4 rounded-lg"
+            onClick={handleCardPayment}
+            className="bg-blue-500 text-white py-2 px-4 rounded-lg"
           >
-            Payment
+            Pay with Card
           </button>
         </div>
       </div>
@@ -87,4 +74,4 @@ const TicketConfirmPage = () => {
   );
 };
 
-export default TicketConfirmPage;
+export default PaybillForBus;

@@ -5,7 +5,7 @@ import TicketPage from './components/TicketPage';
 import BusTicketPage from './components/BusTicketPage';
 import BusInfoPage from './components/BusInfoPage';
 import TicketConfirmPage from './components/TicketConfirmPage';
-// import PaymentForBus from './components/PaymentForBus';
+import PaybillForBus from './components/PaybillForBus'; 
 import TicketPrintPage from './components/TicketPrintPage';
 import SetReminderPage from './components/SetReminderPage';
 import TrainTicketPage from './components/TrainTicketPage';
@@ -28,7 +28,7 @@ function App() {
         <Route path="/bus-ticket" element={<BusTicketPage />} />
         <Route path="/bus-info" element={<BusInfoPage />} />
         <Route path="/ticket-confirm" element={<TicketConfirmPage/>} />
-        {/* <Route path="/payment-for-bus" element={<PaymentForBus />} /> */}
+        <Route path="/paybill" element={<PaybillForBus />} /> 
         <Route path="/ticket-print" element={<TicketPrintPage />} />
         <Route path="/set-reminder" element={<SetReminderPage />} />
         <Route path="/train-ticket" element={<TrainTicketPage />} />
