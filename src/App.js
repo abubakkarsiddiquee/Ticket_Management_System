@@ -11,6 +11,7 @@ import TicketPrintPage from './components/TicketPrintPage';
 import SetReminderPage from './components/SetReminderPage';
 import TrainTicketPage from './components/TrainTicketPage';
 import TrainInfoPage from './components/TrainInfoPage';
+import SeatSelect from './components/SeatSelect';
 import TrainConfirmPage from './components/TrainConfirmPage';
 import TrainPrintPage from './components/TrainPrintPage';
 import SetReminderForTrain from './components/SetReminderForTrain';
@@ -28,6 +29,7 @@ function App() {
         <Route path="/ticket" element={<TicketPage />} />
         <Route path="/bus-ticket" element={<BusTicketPage />} />
         <Route path="/bus-info" element={<BusInfoPage />} />
+        <Route path="/seat-select" element={<SeatSelect />} />
         <Route path="/ticket-confirm" element={<TicketConfirmPage/>} />
         <Route path="/paybill" element={<PayBillForBus />} />
         <Route path="/bkash-payment" element={<BkashPaymentForm />} />

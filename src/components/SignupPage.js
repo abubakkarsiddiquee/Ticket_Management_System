@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const SignupPage = () => {
   const navigate = useNavigate(); // Hook to programmatically navigate
@@ -15,6 +16,8 @@ const SignupPage = () => {
     confirmPassword: '',
   });
 
+  const [message, setMessage] = useState(''); // For handling success or error messages
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -23,15 +26,53 @@ const SignupPage = () => {
     });
   };
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
-    // Add your validation logic here
+
+    // Password validation
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords don't match");
       return;
     }
-    // Simulate user sign-up process (you can add API call here)
-    navigate('/profile'); // Navigate to the profile page
+
+    try {
+      // Fetch request to signup
+      const res = await fetch('http://localhost:5002/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          email: formData.email,
+          password: formData.password,
+          name: formData.name,
+          gender: formData.gender,
+          age: formData.age,
+          phone: `${formData.countryCode}${formData.phone}`,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setMessage('User created successfully');
+        
+
+     Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Your work has been saved",
+  showConfirmButton: false,
+  timer: 1500
+});
+        navigate('/profile'); // Navigate to profile page upon success
+      } else {
+        setMessage(data.error || 'Signup failed');
+      }
+    } catch (error) {
+      setMessage('Error occurred: ' + error.message);
+    }
   };
 
   const handleLogInRedirect = () => {
@@ -39,7 +80,7 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="bg-[#F7E16B]  flex flex-col justify-center items-center">
+    <div className="bg-[#F7E16B] flex flex-col justify-center items-center">
       <h1 className="text-black font-bold text-4xl mb-8">Sign Up</h1>
       <form className="bg-white p-8 rounded-md shadow-md w-full max-w-lg" onSubmit={handleSignUp}>
         {/* Username */}
@@ -52,6 +93,7 @@ const SignupPage = () => {
             onChange={handleChange}
             className="border border-black rounded-md p-2 w-full"
             placeholder="Enter your username"
+            required
           />
         </div>
 
@@ -65,6 +107,7 @@ const SignupPage = () => {
             onChange={handleChange}
             className="border border-black rounded-md p-2 w-full"
             placeholder="Enter your full name"
+            required
           />
         </div>
 
@@ -76,6 +119,7 @@ const SignupPage = () => {
             value={formData.gender}
             onChange={handleChange}
             className="border border-black rounded-md p-2 w-full"
+            required
           >
             <option value="" disabled>Select your gender</option>
             <option value="male">Male</option>
@@ -94,6 +138,7 @@ const SignupPage = () => {
             onChange={handleChange}
             className="border border-black rounded-md p-2 w-full"
             placeholder="Enter your age"
+            required
           />
         </div>
 
@@ -106,6 +151,7 @@ const SignupPage = () => {
               value={formData.countryCode}
               onChange={handleChange}
               className="border border-black rounded-l-md p-2"
+              required
             >
               <option value="+880">+880 (Bangladesh)</option>
               <option value="+92">+92 (Pakistan)</option>
@@ -120,6 +166,7 @@ const SignupPage = () => {
               onChange={handleChange}
               className="border border-black rounded-r-md p-2 w-full"
               placeholder="Enter your phone number"
+              required
             />
           </div>
         </div>
@@ -134,6 +181,7 @@ const SignupPage = () => {
             onChange={handleChange}
             className="border border-black rounded-md p-2 w-full"
             placeholder="Enter your email"
+            required
           />
         </div>
 
@@ -147,6 +195,7 @@ const SignupPage = () => {
             onChange={handleChange}
             className="border border-black rounded-md p-2 w-full"
             placeholder="Enter your password"
+            required
           />
         </div>
 
@@ -160,6 +209,7 @@ const SignupPage = () => {
             onChange={handleChange}
             className="border border-black rounded-md p-2 w-full"
             placeholder="Confirm your password"
+            required
           />
         </div>
 
@@ -167,6 +217,9 @@ const SignupPage = () => {
         <button type="submit" className="bg-black text-white py-2 px-6 rounded-md text-lg w-full">
           Sign Up
         </button>
+
+        {/* Message */}
+        {message && <p className="text-center mt-4">{message}</p>}
 
         {/* Log In Button for Existing Users */}
         <div className="mt-4">

@@ -5,20 +5,28 @@ const TicketConfirmPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { selectedBus, from, to, date, time } = location.state || {};
+  const { selectedBus, from, to, date, time, passengerName, passengerEmail } = location.state || {};
 
   const handleCancel = () => {
     navigate('/bus-info', { state: { from, to, date, time } });
   };
 
-  const handlePayWithBkash = () => {
-    navigate('/paybill', {
-      state: { selectedBus, from, to, date, time }
+  const handleConfirm = () => {
+    navigate('/bkash-payment', {
+      state: {
+        selectedBus,
+        from,
+        to,
+        date,
+        time,
+        passengerName,
+        passengerEmail,
+      }
     });
   };
 
   return (
-    <div className="bg-[#F7E16B] h-screen">
+    <div className="bg-[#F7E16B] min-h-screen flex flex-col">
       {/* Navbar */}
       <nav className="flex justify-between items-center p-4 bg-black text-white">
         <div className="flex space-x-4">
@@ -41,12 +49,12 @@ const TicketConfirmPage = () => {
       </nav>
 
       {/* Ticket Confirmation Section */}
-      <div className="p-8">
+      <div className="flex-grow p-8 flex flex-col items-center">
         <h1 className="text-4xl font-bold mb-4">Confirm Your Ticket</h1>
 
-        {/* Display Selected Bus Information */}
-        <div className="mb-6">
-          <h2 className="text-2xl font-semibold">Bus Information:</h2>
+        {/* Bus Information */}
+        <div className="bg-white shadow-md rounded-lg p-6 mb-6 w-full max-w-md">
+          <h2 className="text-2xl font-semibold mb-2">Bus Information</h2>
           <p><strong>Bus Name:</strong> {selectedBus?.name}</p>
           <p><strong>Seats Available:</strong> {selectedBus?.seats}</p>
           <p><strong>Price:</strong> {selectedBus?.price} BDT</p>
@@ -58,6 +66,15 @@ const TicketConfirmPage = () => {
           <p><strong>Time:</strong> {time}</p>
         </div>
 
+        {/* Terms and Conditions */}
+        <div className="bg-white shadow-md rounded-lg p-6 mb-6 w-full max-w-md">
+          <h2 className="text-2xl font-semibold mb-2">Terms and Conditions</h2>
+          <ul className="list-disc list-inside">
+            <li>Ensure you arrive at the departure point at least 30 minutes before departure.</li>
+            <li>Passengers must carry valid identification.</li>
+          </ul>
+        </div>
+
         {/* Confirm and Cancel Buttons */}
         <div className="flex space-x-4">
           <button
@@ -67,10 +84,10 @@ const TicketConfirmPage = () => {
             Cancel
           </button>
           <button
-            onClick={handlePayWithBkash}
+            onClick={handleConfirm}
             className="bg-green-500 text-white py-2 px-4 rounded-lg"
           >
-            Pay with Bkash
+            Confirm
           </button>
         </div>
       </div>

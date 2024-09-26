@@ -15,12 +15,13 @@ const BusInfoPage = () => {
     { name: 'Suhag Express', seats: 15, price: 1200, departure: '9 PM', arrival: '4 AM' }
   ];
 
-  const handleSelectBus = (selectedBus) => {
     // Navigate to TicketConfirmPage with the selected bus info
-    navigate('/ticket-confirm', {
-      state: { selectedBus, from, to, date, time },
-    });
-  };
+    const handleSelectBus = (selectedBus) => {
+      // Navigate to SeatSelect with the selected bus info
+      navigate('/seat-select', {
+        state: { selectedBus, from, to, date, time },
+      });
+    };
 
   return (
     <div className="bg-[#F7E16B] h-screen">
@@ -43,49 +44,53 @@ const BusInfoPage = () => {
 
       {/* Bus Info Display */}
       <div className="p-8">
-        <h1 className="text-4xl font-bold mb-4">Bus Information</h1>
+        <h1 className="text-4xl font-bold mb-4 text-center">Bus Information</h1>
 
         {/* Display selected route details */}
-        <div className="mb-6">
-          <h2 className="text-2xl font-semibold">Your Trip Details:</h2>
-          <p><strong>From:</strong> {from}</p>
-          <p><strong>To:</strong> {to}</p>
-          <p><strong>Date:</strong> {date}</p>
-          <p><strong>Time:</strong> {time}</p>
+        <div className="flex justify-center mb-6">
+          <div className="bg-white p-4 shadow-md rounded-lg w-full md:w-1/2 text-center">
+            <h2 className="text-2xl font-semibold mb-2">Your Trip Details:</h2>
+            <p><strong>From:</strong> {from}</p>
+            <p><strong>To:</strong> {to}</p>
+            <p><strong>Date:</strong> {date}</p>
+            <p><strong>Time:</strong> {time}</p>
+          </div>
         </div>
 
         {/* Table for Bus Information */}
-        <table className="w-full text-left table-auto">
-          <thead>
-            <tr>
-              <th className="border px-4 py-2">Bus Name</th>
-              <th className="border px-4 py-2">No of Seats</th>
-              <th className="border px-4 py-2">Price (BDT)</th>
-              <th className="border px-4 py-2">Departure Time</th>
-              <th className="border px-4 py-2">Arrival Time</th>
-              <th className="border px-4 py-2">Select</th>
-            </tr>
-          </thead>
-          <tbody>
-            {busInfo.map((bus, index) => (
-              <tr key={index}>
-                <td className="border px-4 py-2">{bus.name}</td>
-                <td className="border px-4 py-2">{bus.seats}</td>
-                <td className="border px-4 py-2">{bus.price}</td>
-                <td className="border px-4 py-2">{bus.departure}</td>
-                <td className="border px-4 py-2">{bus.arrival}</td>
-                <td className="border px-4 py-2">
-                  <button
-                    onClick={() => handleSelectBus(bus)}
-                    className="bg-blue-500 text-white py-1 px-2 rounded"
-                  >
-                    Select
-                  </button>
-                </td>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left table-auto">
+            <thead>
+              <tr>
+                <th className="border px-4 py-2">Bus Name</th>
+                <th className="border px-4 py-2">No of Seats</th>
+                <th className="border px-4 py-2">Price (BDT)</th>
+                <th className="border px-4 py-2">Departure Time</th>
+                <th className="border px-4 py-2">Arrival Time</th>
+                <th className="border px-4 py-2">Select</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {busInfo.map((bus, index) => (
+                <tr key={index} className="hover:bg-gray-100">
+                  <td className="border px-4 py-2">{bus.name}</td>
+                  <td className="border px-4 py-2">{bus.seats}</td>
+                  <td className="border px-4 py-2">{bus.price}</td>
+                  <td className="border px-4 py-2">{bus.departure}</td>
+                  <td className="border px-4 py-2">{bus.arrival}</td>
+                  <td className="border px-4 py-2">
+                    <button
+                      onClick={() => handleSelectBus(bus)}
+                      className="bg-blue-500 text-white py-1 px-2 rounded"
+                    >
+                      Select
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
