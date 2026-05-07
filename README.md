@@ -1,148 +1,88 @@
-# Ticket Booking Management System
+Ticket Booking Management System
 
-A full-stack travel and booking management platform developed as part of the System Analysis and Design (SAD) Lab project at United International University (UIU). The system provides an integrated solution for booking buses, rental cars, hotels, and travel tickets within a single platform.
+A full-stack travel and booking management platform developed as part of the System Analysis and Design (SAD) Lab at United International University (UIU).
 
-The project was designed following structured software engineering principles, including system analysis, workflow modeling, software testing methodologies, and collaborative project management practices.
+The system provides an integrated solution for booking buses, rental cars, hotels, and travel tickets within a single platform.
 
----
+The project follows structured software engineering practices including system analysis, workflow modeling, software testing, and collaborative development.
 
-## Branch Structure
+Branch Structure
+main
 
-### `main`
+Frontend application including UI, booking workflows, and user experience features.
 
-Contains the primary frontend application, booking workflows, UI components, and integrated platform features.
+master
 
-### `master`
+Backend system including APIs, authentication, database operations, and core logic.
 
-Includes the core backend logic, database operations, authentication system, APIs, and overall project integration.
+carRent
 
-### `carRent`
+Car rental module with vehicle listings, availability management, and booking system.
 
-Dedicated module for car rental services, including vehicle listings, availability management, rental booking workflows, and location-based services.
+Project Features
+Multi-Service Booking Platform
+Bus ticket booking
+Car rental services
+Hotel reservation system
+Unified booking and tracking system
+Role-Based Access Control (RBAC)
+Separate roles for Users and Admins
+Secure authentication and authorization
+Booking management controls
+Booking Lifecycle Management
+Create, update, and cancel bookings
+Availability tracking
+Booking confirmation and history
+Admin Dashboard
+Manage users and bookings
+Monitor system activity
+Handle notifications and logs
+Map API Integration
+Route visualization
+Location-based services
+Travel route support
+System Design & Engineering
+Entity Relationship Diagram (ERD)
+Data Flow Diagram (DFD)
+Activity Diagrams
+System Architecture Design
+SDLC-based development process
+Software Testing
+Black-box testing
+White-box testing
+Gray-box testing
+Functional testing
+Project Management
+Jira for task tracking and sprint management
+GitHub for version control
+Team collaboration workflow
+Technology Stack
 
----
+Frontend: React.js, Tailwind CSS, HTML5, JavaScript
+Backend: Node.js, Express.js
+Database: MongoDB
+APIs: Map API
+Tools: Jira, GitHub, Figma
+Methodology: SDLC, Agile practices
 
-# Project Features
-
-## Multi-Service Booking Platform
-
-* Bus ticket booking
-* Car rental services
-* Hotel reservation system
-* Unified booking and tracking experience
-
-## Role-Based Access Control (RBAC)
-
-* Separate access for users and administrators
-* Secure authentication and authorization
-* Booking management and administrative controls
-
-## Booking & Ticket Lifecycle Management
-
-* Booking creation and cancellation
-* Availability tracking
-* Booking confirmations and reminders
-* Transaction monitoring and history tracking
-
-## Admin Dashboard
-
-* Monitor bookings and users
-* Manage travel services and availability
-* Handle transaction logs and notifications
-
-## Map API Integration
-
-* Route visualization
-* Location-based travel services
-* Travel destination support
-
-## System Analysis & Software Engineering
-
-* Entity Relationship Diagram (ERD)
-* Data Flow Diagram (DFD)
-* Activity Diagram
-* Workflow Modeling
-* SDLC-based development approach
-
-## Software Testing
-
-* Black-box testing
-* White-box testing
-* Gray-box testing
-* Functional and workflow validation
-
-## Project Management & Collaboration
-
-* Jira for task management and sprint tracking
-* GitHub for version control and collaboration
-* Team-based software development workflow
-
----
-
-# Technology Stack
-
-## Frontend
-
-* React.js
-* Tailwind CSS
-* HTML5
-* JavaScript
-
-## Backend
-
-* Node.js
-* Express.js
-
-## Database
-
-* MongoDB
-
-## APIs & Tools
-
-* Map API
-* Jira
-* GitHub
-
-## Software Engineering Tools
-
-* ERD
-* DFD
-* Activity Diagram
-* SDLC Methodology
-
----
-
-# Project Workflow
-
-1. User registers and logs into the platform
-2. User searches for buses, hotels, or rental cars
-3. System displays availability and booking information
-4. User confirms booking and transaction
-5. Admin monitors and manages bookings from the dashboard
-6. Notifications and booking updates are processed in real time
-
----
-
-# Academic & Project Showcase
-
-* Developed for the SAD (System Analysis and Design) Laboratory at UIU
-* Presented at the UIU CSE Project Show
-* Focused on practical software engineering methodologies and full-stack system implementation
-
----
-
-# Team Member
+Project Workflow
+User registration and login
+Search for buses, hotels, or rental cars
+View availability and booking details
+Confirm booking and transaction
+Admin manages system via dashboard
+Real-time updates and notifications
+Academic Context
+Developed for the SAD (System Analysis and Design) Laboratory at UIU
+Presented at the UIU CSE Project Show
+Focused on real-world software engineering practices and system design
+Team Member
 GitHub: https://github.com/Iffat0
-
-(Team collaboration on full system development and feature implementation)
 Future Improvements
 Online payment gateway integration
-Mobile app version (React Native)
+React Native mobile application
 AI-based travel recommendations
-Cloud deployment with scalability suppor
+Cloud deployment and scalability improvements
+Contributors
 
----
-
-# Contributors
-
-Developed collaboratively as a university software engineering project focusing on real-world booking system architecture, structured analysis, and scalable full-stack development.
+Developed as a collaborative university project focusing on system analysis, full-stack development, and real-world booking system design.
